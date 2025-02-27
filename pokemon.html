@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PokéDex</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.cdnfonts.com/css/pok" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <header class="navbar">
+      <h1 class="logo">Pokédex</h1>
+      <div class="search-bar">
+        <input type="text" id="pokemonSearch" placeholder="Buscar Pokémon">
+        <button id="searchButton">Buscar</button>
+        <div id="autocomplete-list" class="autocomplete-list"></div>
+      </div>
+      <div style="display: flex; align-items: center; margin-left: auto;">
+        <p>Modo Oscuro</p>
+        <label class="switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <nav id="control-panel">
+        <a href="index.html">Inicio</a>
+        <a href="mi-lista.html">Mi Lista</a>
+        <a href="acerca-de.html">Acerca de</a>
+      </nav>
+    </header>
+    <main>
+      <div class="pokemon-info" style="justify-content: space-between;">
+        <div class="pokemon-details">
+          <h1 id="pokemon-name"></h1>
+          <div class="pokemon-image">
+            <img id="pokemon-img" src="" alt="Pokémon Image">
+            <p id="pokemon-evolution"></p>
+          </div>
+          <div id="pokemon-moves" class="pokemon-moves" style="text-align: left;">
+            <h2>Movimientos</h2>
+            <div class="collapsible">
+              <input type="checkbox" id="toggle-moves">
+              <label for="toggle-moves">Mostrar Movimientos</label>
+              <ul id="moves-list" class="content"></ul>
+            </div>
+          </div>
+          <div id="pokemon-description" class="pokemon-description" style="text-align: left;">
+            <h2>Descripción</h2>
+            <p id="description-text"></p>
+          </div>
+        </div>
+        <div class="pokemon-info-right" style="margin-left: auto;">
+          <div id="pokemon-additional-info" style="text-align: left;">
+            <div id="pokemon-type">
+              <h3>Es de Tipo</h3>
+            </div>
+            <h3>Altura y Peso</h3>
+            <p id="pokemon-height-weight"></p>
+          </div>
+          <div class="stats">
+            <h4>Estadísticas</h4>
+            <canvas id="pokemonRadar"></canvas>
+          </div>
+        </div>
+      </div>
+      <div id="evolution-images"></div>
+      <div class="not-found"></div>
+      <div class="tabs"></div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/pokemon.js"></script>
+  <script src="js/theme.js"></script>
+</body>
+
+</html>

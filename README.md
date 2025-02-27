@@ -1,0 +1,2 @@
+# MyPokedexWeb
+Diseño y creación de mi propia Pokédex usando <a href="https://pokeapi.co/">PokéAPI</a>, una API de Pokemon que permite obtener una lista y características de los distintos Pokémon según su tipo y generación.
