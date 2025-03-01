@@ -30,40 +30,52 @@
       </nav>
     </header>
     <main>
-      <div class="filters">
-        <select id="type-filter">
-          <option value="">Filtrar por Tipo</option>
-          <option value="normal">Normal</option>
-          <option value="fire">Fuego</option>
-          <option value="water">Agua</option>
-          <option value="grass">Planta</option>
-          <option value="electric">Eléctrico</option>
-          <option value="ice">Hielo</option>
-          <option value="fighting">Lucha</option>
-          <option value="poison">Veneno</option>
-          <option value="ground">Tierra</option>
-          <option value="flying">Volador</option>
-          <option value="psychic">Psíquico</option>
-          <option value="bug">Bicho</option>
-          <option value="rock">Roca</option>
-          <option value="ghost">Fantasma</option>
-          <option value="dark">Siniestro</option>
-          <option value="dragon">Dragón</option>
-          <option value="steel">Acero</option>
-          <option value="fairy">Hada</option>
-        </select>
-        <select id="generation-filter">
-          <option value="">Filtrar por Generación</option>
-          <option value="1">Generación 1</option>
-          <option value="2">Generación 2</option>
-          <option value="3">Generación 3</option>
-          <option value="4">Generación 4</option>
-          <option value="5">Generación 5</option>
-          <option value="6">Generación 6</option>
-          <option value="7">Generación 7</option>
-          <option value="8">Generación 8</option>
-        </select>
+      <div class="filters-container">
+        <div class="filter-box">
+          <button class="filter-button" id="type-filter-btn">
+            <span>Filtrar por Tipo</span>
+            <i class="arrow-down">▼</i>
+          </button>
+          <div class="filter-dropdown" id="type-dropdown">
+            <div class="filter-option" data-type="normal">Normal</div>
+            <div class="filter-option" data-type="fire">Fuego</div>
+            <div class="filter-option" data-type="water">Agua</div>
+            <div class="filter-option" data-type="grass">Planta</div>
+            <div class="filter-option" data-type="electric">Eléctrico</div>
+            <div class="filter-option" data-type="ice">Hielo</div>
+            <div class="filter-option" data-type="fighting">Lucha</div>
+            <div class="filter-option" data-type="poison">Veneno</div>
+            <div class="filter-option" data-type="ground">Tierra</div>
+            <div class="filter-option" data-type="flying">Volador</div>
+            <div class="filter-option" data-type="psychic">Psíquico</div>
+            <div class="filter-option" data-type="bug">Bicho</div>
+            <div class="filter-option" data-type="rock">Roca</div>
+            <div class="filter-option" data-type="ghost">Fantasma</div>
+            <div class="filter-option" data-type="dark">Siniestro</div>
+            <div class="filter-option" data-type="dragon">Dragón</div>
+            <div class="filter-option" data-type="steel">Acero</div>
+            <div class="filter-option" data-type="fairy">Hada</div>
+          </div>
+        </div>
+
+        <div class="filter-box">
+          <button class="filter-button" id="gen-filter-btn">
+            <span>Filtrar por Generación</span>
+            <i class="arrow-down">▼</i>
+          </button>
+          <div class="filter-dropdown" id="gen-dropdown">
+            <div class="filter-option" data-gen="1">Generación 1</div>
+            <div class="filter-option" data-gen="2">Generación 2</div>
+            <div class="filter-option" data-gen="3">Generación 3</div>
+            <div class="filter-option" data-gen="4">Generación 4</div>
+            <div class="filter-option" data-gen="5">Generación 5</div>
+            <div class="filter-option" data-gen="6">Generación 6</div>
+            <div class="filter-option" data-gen="7">Generación 7</div>
+            <div class="filter-option" data-gen="8">Generación 8</div>
+          </div>
+        </div>
       </div>
+
       <div id="pokedex-grid" class="pokemon-grid"></div>
       <button id="load-more" class="load-more-button">Cargar más Pokémon</button>
     </main>

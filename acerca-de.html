@@ -31,48 +31,60 @@
       <p>Esta es una Pokédex creada para mostrar información sobre Pokémon, permitiendo a los usuarios explorar y guardar sus Pokémon favoritos.</p>
       <p>Desarrollado por Franco Nicolás Maldarella Font</p>
 
-      <section class="resources">
-        <h2>Recursos Utilizados</h2>
-        <ul>
-          <li><a href="https://pokeapi.co/" target="_blank">PokéAPI</a> - API principal para obtener datos de Pokémon</li>
-          <li><a href="https://www.pkparaiso.com/" target="_blank">PKParaíso</a> - Recursos visuales e información adicional</li>
-          <li><a href="https://sweetalert2.github.io/" target="_blank">SweetAlert2</a> - Librería para alertas y notificaciones personalizadas</li>
-          <li><a href="https://www.pokemon.com/" target="_blank">Pokémon Official</a> - Referencia de diseño y contenido</li>
-          <li><a href="https://bulbapedia.bulbagarden.net/" target="_blank">Bulbapedia</a> - Wiki de referencia para información de Pokémon</li>
-        </ul>
-      </section>
+      <div class="collapsible">
+        <input type="checkbox" id="resources">
+        <label for="resources">Recursos Utilizados</label>
+        <div class="content">
+          <ul>
+            <li><a href="https://pokeapi.co/" target="_blank">PokéAPI</a> - API principal para obtener datos de Pokémon</li>
+            <li><a href="https://www.pkparaiso.com/" target="_blank">PKParaíso</a> - Recursos visuales e información adicional</li>
+            <li><a href="https://sweetalert2.github.io/" target="_blank">SweetAlert2</a> - Librería para alertas y notificaciones personalizadas</li>
+            <li><a href="https://www.pokemon.com/" target="_blank">Pokémon Official</a> - Referencia de diseño y contenido</li>
+            <li><a href="https://bulbapedia.bulbagarden.net/" target="_blank">Bulbapedia</a> - Wiki de referencia para información de Pokémon</li>
+          </ul>
+        </div>
+      </div>
 
-      <section class="help">
-        <h2>Ayuda y Preguntas Frecuentes</h2>
-        
-        <h3>¿Cómo buscar un Pokémon?</h3>
-        <p>Puedes buscar Pokémon de dos formas:</p>
-        <ul>
-          <li>Por nombre: Escribe el nombre del Pokémon en la barra de búsqueda</li>
-          <li>Por número: Introduce el número de la Pokédex del Pokémon que buscas</li>
-        </ul>
+      <div class="collapsible">
+        <input type="checkbox" id="help">
+        <label for="help">Ayuda y Preguntas Frecuentes</label>
+        <div class="content">
+          <h3>¿Cómo buscar un Pokémon?</h3>
+          <p>Puedes buscar Pokémon de dos formas:</p>
+          <ul>
+            <li>Por nombre: Escribe el nombre del Pokémon en la barra de búsqueda</li>
+            <li>Por número: Introduce el número de la Pokédex del Pokémon que buscas</li>
+          </ul>
 
-        <h3>¿Cómo guardar Pokémon favoritos?</h3>
-        <p>Para añadir un Pokémon a tu lista de favoritos:</p>
-        <ol>
-          <li>Busca el Pokémon que deseas guardar</li>
-          <li>Haz clic en el icono de corazón</li>
-          <li>El Pokémon aparecerá en la sección "Mi Lista"</li>
-        </ol>
+          <h3>¿Cómo guardar Pokémon favoritos?</h3>
+          <p>Para añadir un Pokémon a tu lista de favoritos:</p>
+          <ol>
+            <li>Busca el Pokémon que deseas guardar</li>
+            <li>Haz clic en el icono de corazón</li>
+            <li>El Pokémon aparecerá en la sección "Mi Lista"</li>
+          </ol>
+        </div>
+      </div>
 
-        <h3>Problemas Comunes</h3>
-        <ul>
-          <li><strong>No se cargan los Pokémon:</strong> Verifica tu conexión a internet</li>
-          <li><strong>No se guardan los favoritos:</strong> Asegúrate de que tu navegador permite el almacenamiento local</li>
-          <li><strong>Imágenes no visibles:</strong> Intenta recargar la página</li>
-        </ul>
+      <div class="collapsible">
+        <input type="checkbox" id="problems">
+        <label for="problems">Problemas Comunes</label>
+        <div class="content">
+          <ul>
+            <li><strong>No se cargan los Pokémon:</strong> Verifica tu conexión a internet</li>
+            <li><strong>No se guardan los favoritos:</strong> Asegúrate de que tu navegador permite el almacenamiento local</li>
+            <li><strong>Imágenes no visibles:</strong> Intenta recargar la página</li>
+          </ul>
+        </div>
+      </div>
 
+      <div class="contact-info">
         <h3>Contacto</h3>
         <p>Si encuentras algún problema no listado aquí o tienes sugerencias, puedes contactarme a través de:</p>
         <ul>
           <li>GitHub: <a href="https://github.com/Francom457" target="_blank">@Francom457</a></li>
         </ul>
-      </section>
+      </div>
     </main>
   </div>
   <script src="js/script.js"></script>

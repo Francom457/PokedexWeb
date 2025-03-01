@@ -111,10 +111,6 @@ function displayPokemon(data) {
     typeIcon.src = typeIcons[typeName];
     typeIcon.alt = translatedType;
     typeIcon.className = `type-icon type-${typeName}`;
-    typeIcon.style.cursor = 'pointer';
-    typeIcon.addEventListener('click', () => {
-      window.location.href = `tipo.html?type=${typeName}`;
-    });
     pokemonTypeElement.appendChild(typeIcon);
     pokemonTypeElement.appendChild(document.createTextNode(' '));
   });
