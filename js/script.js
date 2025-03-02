@@ -75,9 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
 let currentOffset = 0;
 const limit = 10;
 let pokemonList = [];
-let loadedPokemonIds = new Set(); // Nuevo: Set para rastrear IDs de Pokémon cargados
+let loadedPokemonIds = new Set();
 
-// Reemplazar variables globales para los filtros
+
 let currentTypeFilter = '';
 let currentGenFilter = '';
 
@@ -94,7 +94,7 @@ function loadPokedex() {
       const pokedexGrid = document.getElementById('pokedex-grid');
       pokedexGrid.innerHTML = '';
       currentOffset = 0;
-      loadedPokemonIds.clear(); // Limpiar IDs cargados
+      loadedPokemonIds.clear();
 
       pokemonList = currentGenFilter ? data.pokemon_species : data.results;
 
@@ -145,7 +145,7 @@ function displayPokemonBatch() {
     return fetch(pokemonUrl)
       .then(response => response.json())
       .then(pokemonData => {
-        // Verificar si el Pokémon ya está cargado
+
         if (loadedPokemonIds.has(pokemonData.id)) {
           return null;
         }
@@ -222,7 +222,7 @@ function toggleFavorite(pokemonName, button) {
     Swal.fire({
       title: 'Eliminado de favoritos',
       text: `${pokemonName} ha sido eliminado de tu lista`,
-      icon: 'info',
+      icon: 'error',
       background: 'rgba(0, 0, 0, 0.5)',
       color: '#ffde00',
       confirmButtonColor: '#3b4cca',
@@ -254,29 +254,28 @@ function toggleFavorite(pokemonName, button) {
 
 document.getElementById('load-more').addEventListener('click', displayPokemonBatch);
 
-// Actualizar los selectores para los filtros
+
 document.querySelectorAll('.filter-options div').forEach(option => {
   option.addEventListener('click', function() {
     const filterType = this.parentElement.closest('.collapsible').querySelector('label').textContent.includes('Tipo') ? 'type' : 'generation';
     const value = this.getAttribute('data-value');
     
-    // Actualizar el texto del label
+
     this.closest('.collapsible').querySelector('label').textContent = 
       this.textContent.length > 20 ? 
       (filterType === 'type' ? 'Filtrar por Tipo' : 'Filtrar por Generación') : 
       this.textContent;
     
-    // Cerrar el desplegable
+
     this.closest('.collapsible').querySelector('input[type="checkbox"]').checked = false;
     
-    // Aplicar el filtro
+
     if (filterType === 'type') {
       currentTypeFilter = value;
     } else {
       currentGenerationFilter = value;
     }
-    
-    // Resetear y cargar Pokémon filtrados
+
     offset = 0;
     loadedPokemon = [];
     document.getElementById('pokedex-grid').innerHTML = '';
@@ -284,7 +283,6 @@ document.querySelectorAll('.filter-options div').forEach(option => {
   });
 });
 
-// Reemplazar los event listeners de los selects por estos nuevos
 document.querySelectorAll('.collapsible .content a').forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
@@ -302,18 +300,16 @@ document.querySelectorAll('.collapsible .content a').forEach(link => {
   });
 });
 
-// Actualizar los event listeners para los nuevos filtros
 document.addEventListener('DOMContentLoaded', () => {
   const pokemonName = getPokemonFromURL();
   if (pokemonName) fetchPokemonData(pokemonName);
 
   loadPokedex();
 
-  // Agregar event listeners para los enlaces de filtro
   document.querySelectorAll('.collapsible .content a').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      e.stopPropagation(); // Evitar que el clic se propague
+      e.stopPropagation();
       
       const type = e.target.getAttribute('data-type');
       const gen = e.target.getAttribute('data-gen');
@@ -330,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
           gen ? `Generación: ${e.target.textContent}` : 'Filtrar por Generación';
       }
       
-      // Cerrar el menú desplegable
+
       if (type !== null) {
         document.getElementById('type-filter-toggle').checked = false;
       }
@@ -342,7 +338,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Cerrar los filtros cuando se hace clic fuera de ellos
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.collapsible')) {
       document.querySelectorAll('.collapsible input[type="checkbox"]').forEach(checkbox => {
@@ -358,11 +353,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const typeDropdown = document.getElementById('type-dropdown');
   const genDropdown = document.getElementById('gen-dropdown');
 
-  // Función para mostrar/ocultar dropdown
+
   function toggleDropdown(button, dropdown) {
     const isActive = button.classList.contains('active');
     
-    // Cerrar todos los dropdowns primero
+
     document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
     document.querySelectorAll('.filter-dropdown').forEach(drop => drop.classList.remove('show'));
     
@@ -372,11 +367,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Event listeners para los botones
   typeButton.addEventListener('click', () => toggleDropdown(typeButton, typeDropdown));
   genButton.addEventListener('click', () => toggleDropdown(genButton, genDropdown));
 
-  // Event listeners para las opciones
   document.querySelectorAll('.filter-option').forEach(option => {
     option.addEventListener('click', () => {
       const type = option.getAttribute('data-type');
@@ -392,16 +385,14 @@ document.addEventListener('DOMContentLoaded', () => {
         genButton.querySelector('span').textContent = gen ? `Generación: ${option.textContent}` : 'Filtrar por Generación';
       }
       
-      // Cerrar dropdown
+
       document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.filter-dropdown').forEach(drop => drop.classList.remove('show'));
-      
-      // Recargar Pokémon
+
       loadPokedex();
     });
   });
 
-  // Cerrar dropdowns al hacer clic fuera
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.filter-box')) {
       document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));

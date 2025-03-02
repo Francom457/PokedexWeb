@@ -1,8 +1,20 @@
+:root {
+  --color-primary: #3b4cca;
+  --color-secondary: #ffde00;
+  --bg-light: rgba(240, 240, 240, 0.8);
+  --bg-dark: rgba(30, 30, 30, 0.8);
+  --bg-hover: rgba(255, 222, 0, 0.2);
+  --border-radius-large: 50px;
+  --border-radius-medium: 25px;
+  --border-radius-small: 10px;
+  --transition-default: all 0.3s ease;
+}
+
 body {
   background: url('https://images3.alphacoders.com/118/thumb-1920-1181595.jpg') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
-  color: #3b4cca;
+  color: var(--color-primary);
   font-family: 'Pokemon Solid', sans-serif;
   margin: 0;
   padding: 0;
@@ -27,7 +39,7 @@ body::before {
 body.dark-mode {
   background: url('https://images3.alphacoders.com/118/thumb-1920-1181595.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: #ffde00;
+  color: var(--color-secondary);
 }
 
 body.dark-mode::before {
@@ -44,15 +56,15 @@ body::-webkit-scrollbar {
   max-width: 90%;
   margin: 40px auto;
   padding: 40px;
-  background: rgba(240, 240, 240, 0.8);
-  border: 4px solid #3b4cca;
-  border-radius: 50px;
+  background: var(--bg-light);
+  border: 4px solid var(--color-primary);
+  border-radius: var(--border-radius-large);
   box-shadow: 0 4px 10px rgba(200, 200, 200, 0.8);
 }
 
 body.dark-mode .container {
-  background: rgba(30, 30, 30, 0.8);
-  border: 4px solid #ffde00;
+  background: var(--bg-dark);
+  border: 4px solid var(--color-secondary);
 }
 
 body.dark-mode .stats, body.dark-mode .collapsible label, body.dark-mode .autocomplete-list div {
@@ -61,7 +73,7 @@ body.dark-mode .stats, body.dark-mode .collapsible label, body.dark-mode .autoco
 
 body.dark-mode .pokemon-card {
   background: rgba(255, 255, 255, 0.1);
-  border: 2px solid #ffde00;
+  border: 2px solid var(--color-secondary);
 }
 
 body.dark-mode .pokemon-card:hover {
@@ -69,7 +81,7 @@ body.dark-mode .pokemon-card:hover {
 }
 
 @media (max-width: 768px) {
-  .container {
+  .body {
     max-width: 95%;
     margin: 20px auto;
     padding: 20px;
@@ -83,7 +95,7 @@ body.dark-mode .pokemon-card:hover {
 }
 
 #control-panel a {
-  color: #3b4cca;
+  color: var(--color-primary);
   text-decoration: none;
   font-size: 18px;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -92,7 +104,15 @@ body.dark-mode .pokemon-card:hover {
 #control-panel a:hover {
   transform: scale(1.1);
   cursor: pointer;
-  color: #ffde00;
+  color: var(--color-primary);
+  background: none !important;
+}
+
+body.dark-mode #control-panel a:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  color: var(--color-secondary);
+  background: none !important;
 }
 
 .navbar {
@@ -100,27 +120,27 @@ body.dark-mode .pokemon-card:hover {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  border-radius: 10px 10px 0 0;
+  border-radius: var(--border-radius-small) var(--border-radius-small) 0 0;
 }
 
 .navbar .logo {
   margin: 0 10px;
   text-decoration: none;
-  color: #ffde00;
-  text-shadow: 2px 0 #3b4cca, -2px 0 #3b4cca, 0 2px #3b4cca, 0 -2px #3b4cca,
-               1px 1px #3b4cca, -1px -1px #3b4cca, 1px -1px #3b4cca, -1px 1px #3b4cca;
+  color: var(--color-secondary);
+  text-shadow: 2px 0 var(--color-primary), -2px 0 var(--color-primary), 0 2px var(--color-primary), 0 -2px var(--color-primary),
+               1px 1px var(--color-primary), -1px -1px var(--color-primary), 1px -1px var(--color-primary), -1px 1px var(--color-primary);
 }
 
 .navbar nav a {
   margin: 0 10px;
   text-decoration: none;
-  color: #3b4cca;
+  color: var(--color-primary);
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .navbar nav a:hover {
   transform: scale(1.1);
-  color: #ffde00;
+  color: var(--color-secondary);
 }
 
 .tabs,
@@ -134,7 +154,7 @@ body.dark-mode .pokemon-card:hover {
   justify-content: space-between;
   align-items: flex-start;
   padding: 20px;
-  border-radius: 0px 0px 50px 50px;
+  border-radius: 0px 0px var(--border-radius-large) var(--border-radius-large);
 }
 
 .pokemon-details {
@@ -153,7 +173,7 @@ body.dark-mode .pokemon-card:hover {
   gap: 10px;
   padding: 0px 20px 20px 20px;
   background: #ddd;
-  border-radius: 10px;
+  border-radius: var(--border-radius-small);
   border: 2px solid #555;
   box-shadow: 0 4px 8px rgba(200, 200, 200, 0.8);
   width: 400px;
@@ -163,7 +183,7 @@ body.dark-mode .pokemon-card:hover {
 
 body.dark-mode .stats {
   background: #444;
-  border: 2px solid #ffde00;
+  border: 2px solid var(--color-secondary);
 }
 
 .stats p {
@@ -171,7 +191,7 @@ body.dark-mode .stats {
   align-items: center;
   justify-content: flex-start;
   margin: 0;
-  color: #3b4cca;
+  color: var(--color-primary);
   font-size: 16px;
   width: 100%;
 }
@@ -194,7 +214,7 @@ body.dark-mode .stats {
 .stat-bar span {
   display: block;
   height: 100%;
-  background: #ffde00;
+  background: var(--color-secondary);
   transition: width 0.5s ease-in-out;
 }
 
@@ -217,7 +237,7 @@ body.dark-mode .stats {
 #pokemon-evolution {
   margin-top: 10px;
   font-size: 16px;
-  color: #3b4cca;
+  color: var(--color-primary);
 }
 
 @keyframes bounce {
@@ -233,16 +253,16 @@ body.dark-mode .stats {
   display: flex;
   justify-content: space-around;
   padding: 20px 0;
-  background: rgba(240, 240, 240, 0.8);
+  background: var(--bg-light);
 }
 
 body.dark-mode .tabs {
-  background: rgba(30, 30, 30, 0.8);
+  background: var(--bg-dark);
 }
 
 .tabs button {
   background: #ddd;
-  color: #ffde00;
+  color: var(--color-secondary);
   padding: 10px 20px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out, background 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -254,7 +274,7 @@ body.dark-mode .tabs button {
 
 .tabs button:hover {
   transform: scale(1.1);
-  background: #ffde00;
+  background: var(--color-secondary);
   color: #000;
 }
 
@@ -268,7 +288,7 @@ body.dark-mode .tabs button {
 .search-bar input, .search-bar button, .button-inicio {
   font-family: 'Pokemon Solid', sans-serif;
   padding: 0px 10px 5px 10px;
-  border-radius: 50px;
+  border-radius: var(--border-radius-large);
   cursor: pointer;
   text-decoration: none;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -276,9 +296,9 @@ body.dark-mode .tabs button {
 
 .search-bar input {
   text-align: center;
-  border: 2px solid #3b4cca;
-  background: rgba(240, 240, 240, 0.8);
-  color: #3b4cca;
+  border: 2px solid var(--color-primary);
+  background: var(--bg-light);
+  color: var(--color-primary);
   flex-grow: 1;
   max-width: 500px;
   outline: none;
@@ -287,9 +307,9 @@ body.dark-mode .tabs button {
 }
 
 body.dark-mode .search-bar input {
-  background: rgba(30, 30, 30, 0.8);
-  color: #ffde00;
-  border: 2px solid #ffde00;
+  background: var(--bg-dark);
+  color: var(--color-secondary);
+  border: 2px solid var(--color-secondary);
 }
 
 .search-bar input:focus, .search-bar input:hover {
@@ -298,27 +318,27 @@ body.dark-mode .search-bar input {
 }
 
 .search-bar button, .button-inicio {
-  border: 2px solid #3b4cca;
-  background: rgba(240, 240, 240, 0.8);
-  color: #3b4cca;
-  padding: 12px 20px;
+  border: 2px solid var(--color-primary);
+  background: var(--bg-light);
+  color: var(--color-primary);
+  padding: 6px 12px 12px 12px;
   font-size: 1em;
   font-family: 'Pokemon Solid', sans-serif;
-  transition: all 0.3s ease;
+  transition: var(--transition-default);
 }
 
 body.dark-mode .search-bar button {
-  background: rgba(30, 30, 30, 0.8);
-  color: #ffde00;
-  border: 2px solid #ffde00;
+  background: var(--bg-dark);
+  color: var(--color-secondary);
+  border: 2px solid var(--color-secondary);
 }
 
 .search-bar button:hover, .button-inicio:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  background: rgba(255, 222, 0, 0.2);
+  background: var(--bg-hover);
   transform: translateY(-2px);
-  color: #ffde00;
+  color: var(--color-secondary);
+  box-shadow: none;
 }
 
 .pokemon-info, .tabs {
@@ -328,11 +348,11 @@ body.dark-mode .search-bar button {
 #pokemon-evolution {
   font-size: 16px;
   margin-top: 10px;
-  color: #3b4cca;
+  color: var(--color-primary);
 }
 
 #pokemon-evolution a {
-  color: #3b4cca;
+  color: var(--color-primary);
   text-decoration: none;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
@@ -344,14 +364,14 @@ body.dark-mode .search-bar button {
 
 .autocomplete-list {
   position: absolute;
-  background: rgba(240, 240, 240, 0.95);
-  border: 2px solid #3b4cca;
+  background: var(--bg-light);
+  border: 2px solid var(--color-primary);
   border-top: none;
   max-height: 200px;
   overflow-y: auto;
   width: 100%;
   z-index: 1000;
-  border-radius: 0 0 25px 25px;
+  border-radius: 0 0 var(--border-radius-medium) var(--border-radius-medium);
   display: none;
   top: 100%;
   left: 0;
@@ -360,24 +380,24 @@ body.dark-mode .search-bar button {
 }
 
 body.dark-mode .autocomplete-list {
-  background: rgba(30, 30, 30, 0.95);
-  border-color: #ffde00;
+  background: var(--bg-dark);
+  border-color: var(--color-secondary);
 }
 
 .autocomplete-list div {
   padding: 12px 20px;
   text-transform: capitalize;
-  color: #3b4cca;
+  color: var(--color-primary);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--transition-default);
 }
 
 body.dark-mode .autocomplete-list div {
-  color: #ffde00;
+  color: var(--color-secondary);
 }
 
 .autocomplete-list div:hover {
-  background: rgba(255, 222, 0, 0.2);
+  background: var(--bg-hover);
   padding-left: 25px;
 }
 
@@ -391,19 +411,19 @@ body.dark-mode .autocomplete-list div {
 }
 
 .autocomplete-list::-webkit-scrollbar-thumb {
-  background: #ffde00;
+  background: var(--color-secondary);
   border-radius: 4px;
 }
 
 .filters {
   display: flex;
   justify-content: center;
-  gap: 40px; /* Aumentado de 20px */
-  margin: 30px 0; /* Aumentado de 20px */
+  gap: 40px;
+  margin: 30px 0;
   width: 100%;
   position: relative;
-  z-index: 1000; /* Asegura que los filtros estén por encima de todo */
-  padding: 0 20px; /* Nuevo padding horizontal */
+  z-index: 1000;
+  padding: 0 20px;
 }
 
 .filters select {
@@ -412,7 +432,7 @@ body.dark-mode .autocomplete-list div {
   font-family: 'Pokemon Solid', sans-serif;
   padding: 10px 20px;
   border: 2px solid #888;
-  border-radius: 50px;
+  border-radius: var(--border-radius-large);
   background: #ddd;
   color: #747475;
   flex-grow: 1;
@@ -441,12 +461,12 @@ body.dark-mode .filters select option {
 }
 
 .filters select option:hover {
-  background: #ffeb3b;
+  background: var(--color-secondary);
   color: #000;
 }
 
 .filters select:focus-visible {
-  border-radius: 50px 50px 0 0;
+  border-radius: var(--border-radius-large) var(--border-radius-large) 0 0;
   border-bottom: none;
   box-shadow: none;
   border: 2px solid #555;
@@ -457,10 +477,10 @@ body.dark-mode .filters select option {
   display: block;
   position: absolute;
   background: #ddd;
-  color: #ffde00;
+  color: var(--color-secondary);
   border: 2px solid #888;
   border-top: none;
-  border-radius: 0 0 50px 50px;
+  border-radius: 0 0 var(--border-radius-large) var(--border-radius-large);
   max-height: 150px;
   overflow-y: auto;
   z-index: 1;
@@ -484,7 +504,7 @@ body.dark-mode .filters select:focus-visible + .select-options {
 }
 
 .select-options div:hover {
-  background: #ffeb3b;
+  background: var(--color-secondary);
   color: #000;
 }
 
@@ -506,7 +526,7 @@ body.dark-mode .filters select:focus-visible + .select-options {
 .filters .collapsible label {
   padding: 10px 20px;
   background: rgba(0, 0, 0, 0.2);
-  border-radius: 50px;
+  border-radius: var(--border-radius-large);
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -514,13 +534,13 @@ body.dark-mode .filters select:focus-visible + .select-options {
   justify-content: space-between;
   margin: 0;
   cursor: pointer;
-  color: #3b4cca;
+  color: var(--color-primary);
   text-shadow: none;
 }
 
 body.dark-mode .collapsible label {
   background: #444;
-  border-color: #ffde00;
+  border-color: var(--color-secondary);
 }
 
 .filters .collapsible .content {
@@ -554,15 +574,15 @@ body.dark-mode .collapsible label {
 .filters .collapsible ul li a {
   display: block;
   padding: 8px 15px;
-  color: #3b4cca;
+  color: var(--color-primary);
   text-decoration: none;
-  border-radius: 25px;
-  transition: all 0.3s ease;
+  border-radius: var(--border-radius-medium);
+  transition: var(--transition-default);
   font-size: 0.9em;
 }
 
 .filters .collapsible ul li a:hover {
-  background: rgba(255, 222, 0, 0.2);
+  background: var(--bg-hover);
   transform: translateX(5px);
 }
 
@@ -576,7 +596,7 @@ body.dark-mode .collapsible label {
 }
 
 .filters .collapsible ul::-webkit-scrollbar-thumb {
-  background: #ffde00;
+  background: var(--color-secondary);
   border-radius: 4px;
 }
 
@@ -586,7 +606,7 @@ body.dark-mode .collapsible label {
   text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
   1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
   padding: 0px 10px 10px 15px;
-  border-radius: 50px;
+  border-radius: var(--border-radius-large);
   font-size: 14px;
   margin: 5px;
   text-transform: capitalize;
@@ -599,7 +619,7 @@ body.dark-mode .collapsible label {
   transform: scale(1.1);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  background: #ffeb3b;
+  background: var(--color-secondary);
   color: #000;
 }
 
@@ -607,18 +627,18 @@ body.dark-mode .collapsible label {
   max-width: 100%;
   overflow: auto;
   padding: 20px;
-  border-radius: 10px;
-  background: rgba(240, 240, 240, 0.8);
+  border-radius: var(--border-radius-small);
+  background: var(--bg-light);
 }
 
 body.dark-mode .type-pokemon-list {
-  background: rgba(30, 30, 30, 0.8);
+  background: var(--bg-dark);
 }
 
 .type-pokemon-list h2 {
   font-size: 24px;
   margin-bottom: 10px;
-  color: #ffde00;
+  color: var(--color-secondary);
 }
 
 .type-pokemon-list ul {
@@ -632,7 +652,7 @@ body.dark-mode .type-pokemon-list {
   margin: 5px 0;
   background: #ddd;
   border-radius: 5px;
-  color: #ffde00;
+  color: var(--color-secondary);
   cursor: pointer;
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
@@ -642,17 +662,17 @@ body.dark-mode .type-pokemon-list li {
 }
 
 .type-pokemon-list li:hover {
-  background: #ffeb3b;
+  background: var(--color-secondary);
   color: #000;
 }
 
+/* Grid layout */
 .pokemon-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 15px;
   padding: 20px;
   position: relative;
-  z-index: 1; /* Asegura que el grid esté por debajo de los filtros */
 }
 
 .pokemon-card {
@@ -662,7 +682,7 @@ body.dark-mode .type-pokemon-list li {
   justify-content: center;
   background: rgba(200, 200, 200, 0.5);
   border: 2px solid rgba(163, 163, 163, 0.5);
-  border-radius: 10px;
+  border-radius: var(--border-radius-small);
   padding: 15px;
   text-align: center;
   cursor: pointer;
@@ -672,7 +692,7 @@ body.dark-mode .type-pokemon-list li {
 
 body.dark-mode .pokemon-card {
   background: rgba(255, 255, 255, 0.1);
-  border: 2px solid #ffde00;
+  border: 2px solid var(--color-secondary);
 }
 
 .pokemon-card:hover {
@@ -686,24 +706,31 @@ body.dark-mode .pokemon-card {
 .load-more-button, .load-pokedex-button {
   display: block;
   margin: 20px auto;
-  padding: 10px 20px;
+  padding: 6px 12px 12px 12px;
   font-family: 'Pokemon Solid', sans-serif;
-  border: 5px ridge #3b4cca;
-  border-radius: 50px;
-  background: #ffde00;
-  color: #000;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius-large);
+  background: var(--bg-light);
+  color: var(--color-primary);
   cursor: pointer;
   text-decoration: none;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: var(--transition-default);
 }
 
-body.dark-mode .load-more-button, body.dark-mode .load-pokedex-button {
-  border-color: #ffde00;
+body.dark-mode .load-more-button,
+body.dark-mode .load-pokedex-button {
+  background: var(--bg-dark);
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
 }
 
-.load-more-button:hover, .load-pokedex-button:hover {
+.load-more-button:hover,
+.load-pokedex-button:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  background: var(--bg-hover);
+  transform: translateY(-2px);
+  color: var(--color-secondary);
+  box-shadow: none;
 }
 
 .type-icon {
@@ -711,7 +738,7 @@ body.dark-mode .load-more-button, body.dark-mode .load-pokedex-button {
   height: auto;
   margin-right: 5px;
   vertical-align: middle;
-  cursor: default; /* Cambiado de pointer a default */
+  cursor: default;
 }
 
 .collapsible {
@@ -728,7 +755,7 @@ body.dark-mode .load-more-button, body.dark-mode .load-pokedex-button {
   display: flex;
   align-items: center;
   font-size: 1.2em;
-  color: #3b4cca;
+  color: var(--color-primary);
   cursor: pointer;
   padding: 15px;
   text-align: left;
@@ -736,13 +763,13 @@ body.dark-mode .load-more-button, body.dark-mode .load-pokedex-button {
   background: rgba(0, 0, 0, 0.1);
   width: 100%;
   text-shadow: none;
-  transition: all 0.3s ease;
+  transition: var(--transition-default);
   border-radius: 20px;
 }
 
 body.dark-mode .collapsible label {
   background: rgba(255, 255, 255, 0.1);
-  border-color: #ffde00;
+  border-color: var(--color-secondary);
 }
 
 .collapsible label::before {
@@ -753,7 +780,7 @@ body.dark-mode .collapsible label {
 }
 
 .collapsible label:hover {
-  color: #ffeb3b;
+  color: var(--color-secondary);
   background: rgba(0, 0, 0, 0.2);
   transform: translateX(10px);
 }
@@ -792,7 +819,7 @@ body.dark-mode .collapsible .content {
   height: 20px;
   margin-left: 10px;
   margin-right: 100px;
-  border-radius: 50px;
+  border-radius: var(--border-radius-large);
 }
 
 .switch input {
@@ -856,7 +883,7 @@ body, h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  background: rgba(255, 222, 0, 0.2);
+  background: var(--bg-hover);
 }
 
 .hexagon .stat {
@@ -888,7 +915,7 @@ body, h1, h2, h3, h4, h5, h6 {
 .hexagon-labels span {
   position: absolute;
   font-size: 12px;
-  color: #ffde00;
+  color: var(--color-secondary);
   text-shadow: none;
 }
 
@@ -908,7 +935,7 @@ body, h1, h2, h3, h4, h5, h6 {
   font-size: 1.8em;
   cursor: pointer;
   padding: 5px;
-  transition: all 0.3s ease;
+  transition: var(--transition-default);
   z-index: 10;
   filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.4));
 }
@@ -957,7 +984,7 @@ body, h1, h2, h3, h4, h5, h6 {
 .filters .collapsible label {
   padding: 10px 20px;
   background: rgba(0, 0, 0, 0.2);
-  border-radius: 50px;
+  border-radius: var(--border-radius-large);
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -993,65 +1020,65 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 .filters .collapsible ul::-webkit-scrollbar-thumb {
-  background: #ffde00;
+  background: var(--color-secondary);
   border-radius: 4px;
 }
 
 .filters .collapsible ul li a {
   display: block;
   padding: 8px 15px;
-  color: #3b4cca;
+  color: var(--color-primary);
   text-decoration: none;
-  border-radius: 25px;
-  transition: all 0.3s ease;
+  border-radius: var(--border-radius-medium);
+  transition: var(--transition-default);
 }
 
 .filters .collapsible ul li a:hover {
-  background: rgba(255, 222, 0, 0.2);
+  background: var(--bg-hover);
   transform: translateX(5px);
 }
 
 .filters-container {
   display: flex;
   justify-content: center;
-  gap: 100px; /* Aumentado de 20px a 100px para mayor separación */
+  gap: 100px;
   margin: 20px 0;
   padding: 20px;
   position: relative;
   z-index: 1000;
-  max-width: 800px; /* Añadido para centrar mejor los filtros */
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .filter-box {
   position: relative;
-  width: 300px; /* Aumentado de 250px a 300px para mejor proporción */
+  width: 300px;
 }
 
 .filter-button {
   width: 100%;
   padding: 12px 20px;
-  background: rgba(240, 240, 240, 0.8); /* Cambiado para coincidir con el container */
-  border: 2px solid #3b4cca;
-  border-radius: 25px;
-  color: #3b4cca; /* Cambiado de #ffde00 a #3b4cca para modo claro */
+  background: var(--bg-light);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius-medium);
+  color: var(--color-primary);
   font-family: 'Pokemon Solid', sans-serif;
   font-size: 1em;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.3s ease;
+  transition: var(--transition-default);
 }
 
 body.dark-mode .filter-button {
-  background: rgba(30, 30, 30, 0.8); /* Coincide con el dark mode del container */
-  border-color: #ffde00;
+  background: var(--bg-dark);
+  border-color: var(--color-secondary);
 }
 
 .filter-button:hover {
-  background: rgba(255, 222, 0, 0.2);
+  background: var(--bg-hover);
   transform: translateY(-2px);
 }
 
@@ -1060,8 +1087,8 @@ body.dark-mode .filter-button {
   top: 100%;
   left: 0;
   width: 100%;
-  background: rgba(240, 240, 240, 0.95); /* Cambiado para coincidir con el container */
-  border: 2px solid #3b4cca;
+  background: var(--bg-light);
+  border: 2px solid var(--color-primary);
   border-radius: 15px;
   margin-top: 5px;
   padding: 10px 0;
@@ -1072,8 +1099,8 @@ body.dark-mode .filter-button {
 }
 
 body.dark-mode .filter-dropdown {
-  background: rgba(30, 30, 30, 0.95); /* Coincide con el dark mode del container */
-  border-color: #ffde00;
+  background: var(--bg-dark);
+  border-color: var(--color-secondary);
 }
 
 .arrow-down {
@@ -1091,17 +1118,17 @@ body.dark-mode .filter-dropdown {
 
 .filter-option {
   padding: 10px 20px;
-  color: #3b4cca; /* Cambiado de #ffde00 a #3b4cca para modo claro */
+  color: var(--color-primary);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--transition-default);
 }
 
 body.dark-mode .filter-option {
-  color: #ffde00;
+  color: var(--color-secondary);
 }
 
 .filter-option:hover {
-  background: rgba(255, 222, 0, 0.2);
+  background: var(--bg-hover);
   padding-left: 25px;
 }
 
@@ -1126,11 +1153,10 @@ body.dark-mode .filter-option {
 }
 
 .filter-dropdown::-webkit-scrollbar-thumb {
-  background: #ffde00;
+  background: var(--color-secondary);
   border-radius: 4px;
 }
 
-/* Estilos base (modo luz) */
 body,
 #control-panel a,
 .navbar nav a,
@@ -1145,7 +1171,7 @@ body,
 #pokemon-evolution a,
 .autocomplete-list div,
 .filters .collapsible ul li a {
-  color: #3b4cca;
+  color: var(--color-primary);
 }
 
 .search-bar input,
@@ -1158,10 +1184,9 @@ body,
 .collapsible label,
 .load-more-button,
 .load-pokedex-button {
-  border-color: #3b4cca;
+  border-color: var(--color-primary);
 }
 
-/* Modo oscuro */
 body.dark-mode,
 body.dark-mode #control-panel a,
 body.dark-mode .navbar nav a,
@@ -1176,7 +1201,7 @@ body.dark-mode #pokemon-evolution,
 body.dark-mode #pokemon-evolution a,
 body.dark-mode .autocomplete-list div,
 body.dark-mode .filters .collapsible ul li a {
-  color: #ffde00;
+  color: var(--color-secondary);
 }
 
 body.dark-mode .search-bar input,
@@ -1190,20 +1215,32 @@ body.dark-mode .collapsible label,
 body.dark-mode .load-more-button,
 body.dark-mode .load-pokedex-button,
 body.dark-mode .container {
-  border-color: #ffde00;
+  border-color: var(--color-secondary);
 }
 
-/* Mantener logo Pokédex siempre amarillo con sombra azul */
 .navbar .logo {
-  color: #ffde00;
-  text-shadow: 2px 0 #3b4cca, -2px 0 #3b4cca, 0 2px #3b4cca, 0 -2px #3b4cca,
-               1px 1px #3b4cca, -1px -1px #3b4cca, 1px -1px #3b4cca, -1px 1px #3b4cca;
+  color: var(--color-secondary);
+  text-shadow: 2px 0 var(--color-primary), -2px 0 var(--color-primary), 0 2px var(--color-primary), 0 -2px var(--color-primary),
+               1px 1px var(--color-primary), -1px -1px var(--color-primary), 1px -1px var(--color-primary), -1px 1px var(--color-primary);
 }
 
-/* Efectos hover */
-.search-bar button:hover,
-.filter-button:hover,
-#control-panel a:hover,
-.navbar nav a:hover {
-  color: #ffde00;
+/* Common hover effects */
+button:hover:not(.dark-mode *),
+.filter-button:hover:not(.dark-mode *),
+.navbar nav a:hover:not(.dark-mode *) {
+  transform: scale(1.1);
+  background: rgba(59, 76, 202, 0.2);
+  color: var(--color-primary);
+}
+
+body.dark-mode .search-bar button:hover,
+body.dark-mode .filter-button:hover,
+body.dark-mode #control-panel a:hover,
+body.dark-mode .navbar nav a:hover,
+body.dark-mode .filter-option:hover,
+body.dark-mode .collapsible label:hover,
+body.dark-mode .load-more-button:hover,
+body.dark-mode .load-pokedex-button:hover {
+  color: var(--color-secondary);
+  background: var(--bg-hover);
 }
